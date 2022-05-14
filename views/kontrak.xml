@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="kontrak_act_windows" model="ir.actions.act_window">
+        <field name="name">Kontrak</field>
+        <field name="res_model">hrms.jam_kerja</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="kontrak_menu"
+        name="Kontrak"
+        parent="recruitment_menu"
+        action="kontrak_act_windows"
+        sequence="2"/>
+</odoo>

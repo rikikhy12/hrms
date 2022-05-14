@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="hrms_departement_view_tree" model="ir.ui.view">
+        <field name="name">hrms_departement.view.tree</field>
+        <field name="model">hrms.departement</field>
+        <field name="arch" type="xml">
+        
+                <tree string="">
+                    <field name="name"/>          
+                    <field name="parent_departement" string="Parent Departement"/> 
+                    <field name="totalemployes"/>
+                </tree>
+        </field>
+   </record>
+
+   <record id="hrms_departement_view_form" model="ir.ui.view">
+        <field name="name">hrms_departement.view.form</field>
+        <field name="model">hrms.departement</field>
+        <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                               <field name="name" />
+                               <field name="parent_departement"/>
+                        </group>
+                        <group>
+                            <field name="totalemployes"/>
+                        </group>
+                        <notebook>
+                            <page name="name" string="Pilih Kariawan">
+                                <field name="employes_id"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+        </field>
+   </record>
+   <record id="departement_act_windows" model="ir.actions.act_window">
+       <field name="name">Departement</field>
+       <field name="res_model">hrms.departement</field>
+       <field name="view_mode">tree,form</field>
+   </record>
+
+   <menuitem
+       id       ="departement_menu"
+       name     ="Departement"
+       parent   ="recruitment_menu"
+       sequence ="5"
+       action   ="departement_act_windows"/>
+</odoo>

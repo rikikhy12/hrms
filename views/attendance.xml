@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!-- model.name calendar view -->
+<record id="hr_attendance_view_calendar" model="ir.ui.view">
+    <field name="name">hr.attendance.view.calendar</field>
+    <field name="model">hr.attendance</field>
+    <field name="arch" type="xml">
+        <calendar string="Calendar Description" date_start="check_in" date_stop="check_out" >
+            <!-- Add your fields here -->
+                <field name="employee_id" />
+                <field name="check_in" />    
+                <field name="check_out" />    
+                <field name="worked_hours" />  
+                <field name="status_absen"/>
+        </calendar>
+    </field>
+</record>
+<!-- model.name pivot view -->
+<record id="hr_attendance_view_pivot" model="ir.ui.view">
+    <field name="name">hr.attendance.view.pivot</field>
+    <field name="model">hr.attendance</field>
+    <field name="arch" type="xml">
+        <pivot string="Pivot Description">
+          <field name="employee_id" />    
+          <field name="check_in" />    
+          <field name="check_out" />    
+          <field name="worked_hours" />    
+        </pivot>
+    </field>
+</record>
+<!-- model.name kanban view -->
+<record id="hr_attendance_view_kanban" model="ir.ui.view">
+    <field name="name">hr.attendance.view.kanban</field>
+    <field name="model">hr.attendance</field>
+    <field name="arch" type="xml">
+        <kanban string="Kanban Description">
+          <field name="employee_id" />    
+          <field name="check_in" />    
+          <field name="check_out" />    
+          <field name="worked_hours" />    
+        </kanban>
+    </field>
+</record>
+<!-- model.name graph view -->
+<record id="hr_attendance_view_graph" model="ir.ui.view">
+    <field name="name">hr.attendance.view.graph</field>
+    <field name="model">hr.attendance</field>
+    <field name="arch" type="xml">
+        <graph string="Graph Description">
+           <field name="employee_id" />    
+           <field name="check_in" />    
+           <field name="check_out" />   
+           <field name="worked_hours"/> 
+        </graph>
+    </field>
+</record>
+   <!-- model.name tree view -->
+   <record id="hr_attendance_view_tree" model="ir.ui.view">
+       <field name="name">hr.attendance.view.tree</field>
+       <field name="model">hr.attendance</field>
+       <field name="arch" type="xml">
+           <tree>      
+                <field name="status_absen"/>
+                <field name="employee_id" />
+                <field name="check_in" />
+                <field name="check_out" />
+                <field name="worked_hours"/>
+               
+           </tree>
+       </field>
+   </record>
+
+
+    <record id="attendance_act_window" model="ir.actions.act_window">
+        <field name="name">Attandance</field>
+        <field name="res_model">hr.attendance</field>
+        <field name="view_mode">tree,form,graph,kanban,pivot,calendar</field>
+    </record>
+    <menuitem
+        id="attendancex_menu"
+        name="Attendance"
+        sequence="12"
+        parent="attendance_menu"
+        action="attendance_act_window"
+        />
+</odoo>

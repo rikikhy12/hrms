@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- model.name form view -->
+    <record id="hrms_payroll_view_form" model="ir.ui.view">
+        <field name="name">hrms.payroll.view.form</field>
+        <field name="model">hrms.payroll</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                   <div class="oe_title">
+                            <label for="employee_id" class="oe_edit_only"/>
+                            <h1>
+                                <field name="employee_id" placeholder="Employee"/>
+                            </h1>
+                    </div>
+                    <group string="Periode">
+                        <group>
+                                 <field name="date_from" string="Date from" />
+                                 <field name="contract_id" string="Kontrak" />
+                        </group>
+                        
+                        <group>
+                                 <field name="date_to" string="Date To" />
+                                 <field name="ref" string="Referensi" />
+                              
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="name" string="Hari Kerja dan input">
+                             <field name="workeddayline">
+                              <separator string="Worked Days"/>
+                                <field name="workeddayline">
+                                    <tree string="Worked Days" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="code"/>
+                                        <field name="number_of_days" string="jumlah hari"/> 
+                                        <field name="number_of_hours" string="jumlah jam"/> 
+                                      
+                                    </tree>
+                                    <form string="Worked Day">
+                                        <group col="4">
+                                            <field name="name"/>
+                                            <field name="code"/>
+                                            <field name="number_of_days" string="jumlah hari"/>
+                                            <field name="number_of_hours" string="jumlah jam"/>
+                                          
+                                        </group>
+                                    </form>
+                                </field>
+                             </field>
+                               <separator string="Input Lain lain"/>
+                                <field name="input_line_ids" colspan="4" nolabel="1">
+                                    <tree string="Input Data" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="code"/>
+                                        <field name="amount"/>
+                                        <field name="contract_id"/>
+                                        <field name="sequence" invisible="True"/>
+                                    </tree>
+                                    <form string="Payslip Line">
+                                        <group col="4">
+                                            <field name="name"/>
+                                            <field name="code"/>
+                                            <field name="sequence"/>
+                                            <field name="amount"/>
+                                            <field name="contract_id"/>
+                                        </group>
+                                    </form>
+                                </field>
+                        </page>
+                       <page string="Perhitungan Gaji">
+                                <field name="line_ids" colspan="4" nolabel="1">
+                                    <tree string="Salary Structure" editable="bottom" decoration-info="total == 0">
+                                        <field name="name"/>
+                                        <field name="code"/>
+                                        <field name="component"/>
+                                        <field name="quantity"/>
+                                        <field name="rate"/>
+                                        <field name="amount"/>
+                                        <field name="total"/>
+                                    </tree>
+                                    <form string="Payslip Line">
+                                        <group col="4">
+                                            <field name="name"/>
+                                            <field name="code"/>
+                                            <field name="component"/>
+                                            <field name="quantity"/>
+                                            <field name="rate"/>
+                                            <field name="amount"/>
+                                            <field name="total"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+   <record id="payslip_act_window" model="ir.actions.act_window">
+        <field name="name">Payroll Slip</field>
+        <field name="res_model">hrms.payroll</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="slip_gaji_menu"
+        name="Slip Gaji"
+        sequence="5"
+        parent="payroll_menu"
+        action="payslip_act_window"
+        />
+</odoo>
