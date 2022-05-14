@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<record id="hrms_master_salary_view_form" model="ir.ui.view">
+    <field name="name">hrms.master.salary.view.form</field>
+    <field name="model">hrms.master_salary</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+            <group>
+                <div class="oe_title">
+                            <label for="employee_id" class="oe_edit_only"/>
+                            <h1>
+                                <field name="employee_id" placeholder="Kariawan"/>
+                            </h1>
+              </div>
+            </group>
+              
+                <group>
+                    <field name="name"/>
+                  
+                    <field name="kontrak" />
+                </group>
+                <notebook>
+                    <page  string="Komponen Gaji">
+                        <field name="componen_id">
+                            <separator string="Komponen Master Gaji"/>
+                            <field name="componen_id">
+                              <tree string="Komponen Gaji" editable="bottom">
+                                <field name="componen_id" />
+                                <field name="name" />
+                                <field name="description" />
+                                <field name="quantity" />
+                                <field name="amount" />
+                                <field name="rate" />
+                                <field name="total" />
+                               
+                              </tree>
+                            </field>
+                        </field>
+                    </page>
+                </notebook>
+                <group> 
+                    <field name="grandtotal" />
+                 </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="hrms_master_salary_view_tree" model="ir.ui.view">
+    <field name="name">hrms.master.salary.view.tree</field>
+    <field name="model">hrms.master_salary</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="employee_id" />
+            <field name="name" />    
+            <field name="kontrak" />    
+                
+        </tree>
+    </field>
+</record>
+
+<record id="hrms_master_salary_act_windows" model="ir.actions.act_window">
+    <field name="name">Hrms Master Salary</field>
+    <field name="res_model">hrms.master_salary</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+ <menuitem
+     id         ="hrms_master_salary"
+     name       ="HRMS Master Salary"
+     parent     ="payroll_menu"
+     action     ="hrms_master_salary_act_windows"
+     sequence   ="5"/>
+</odoo>

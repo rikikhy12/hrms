@@ -1,0 +1,33 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report
+        id="sp_print_id"
+        model="hrms.pembelian"
+        string="Print PDF"
+        report-types="qweb-pdf"
+        name=""
+        file=""
+    />
+
+    <template id="sp_print_id">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <!-- <t t-call="web.external_layout"> -->
+                    <div class="header" style="padding-top:5-px;">
+                        <table style="border:0px;" width="100%">
+                            <tr style="padding:10px;">
+                                <td style="padding:2px;"  width="50%" >
+                                    <span t-field="o.name" />
+                                </td>
+                                <td style="padding:2px; text-align:right;"> 
+                                    <span t-field="o.name" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                <!-- </t> -->
+            </t>
+        </t>
+    </template>
+</odoo>

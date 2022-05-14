@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="master_jam_kerja_view_tree" model="ir.ui.view">
+        <field name="name">master_jam_kerja.view.tree</field>
+        <field name="model">hrms.jam_kerja</field>
+        <field name="arch" type="xml">
+            <tree >
+                <field name="nama"/>
+                <field name="days"/>
+                <field name="jam_in"  widget='float_time'/>
+                <field name="jam_out"  widget='float_time'/>
+                <field name="toleransi_in" widget='float_time'/>
+                <field name="toleransi_out" widget='float_time'/>
+            </tree>
+        </field>
+</record>
+
+
+<record id="hrms_jam_kerja_view_form" model="ir.ui.view">
+    <field name="name">hrms.jam_kerja.view.form</field>
+    <field name="model">hrms.jam_kerja</field>
+    <field name="arch" type="xml">
+        <form string="Master Jam Kerja">
+            <sheet>
+                <group>
+                    <field name="nama"/>
+                </group>
+                  <notebook>
+                        <page name="attendances" string="Working time">
+                            <group name="detail" string="Detail waktu">
+                                <field name="days"/>
+                                <group>
+                                        <field name="jam_in"  widget='float_time'/>
+                                        <field name="jam_out"  widget='float_time'/>
+                                </group>
+                                <group>
+                                        <field name="toleransi_in" widget='float_time'/>
+                                        <field name="toleransi_out" widget='float_time'/>
+                                </group>
+                                <group>
+                                      <field name="totaljamkerja"/>
+                                </group>
+                            </group>
+                        </page>
+                        
+                    </notebook>
+            </sheet>
+          
+        </form>
+    </field>
+</record>
+
+<record id="jam_kerja_act_windows" model="ir.actions.act_window">
+    <field name="name">Working hours</field>
+    <field name="res_model">hrms.jam_kerja</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+    <menuitem
+        id="master_jam_kerja"
+        name="Working hours"
+        action="jam_kerja_act_windows"
+        parent="groupdiv_hrms"
+        sequence="1"/>
+</odoo>

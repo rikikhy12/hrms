@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<!-- model.name tree view -->
+<record id="master_sp_view_tree" model="ir.ui.view">
+    <field name="name">master.sp.view.tree</field>
+    <field name="model">hrms.master_sp</field>
+    <field name="arch" type="xml">
+        <tree>
+          <field name="name" string="Name" />
+          <field name="description" />
+          <field name="is_active" string="Active"/>
+        </tree>
+    </field>
+</record>
+
+<record id="master_sp_view_form" model="ir.ui.view">
+    <field name="name">master.sp.view.form</field>
+    <field name="model">hrms.master_sp</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+                <group>
+                    <field name="name" string="Name" />
+                    <field name="description" />
+                    <field name="is_active" />
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="sp_action_windows" model="ir.actions.act_window">
+    <field name="name">JENIS SP</field>
+    <field name="res_model">hrms.master_sp</field>
+    <field name="view_mode">tree,form</field>
+</record>
+  <menuitem
+      id="sp_menu"
+      name="Sp"
+      sequence="10"
+      action="sp_action_windows"
+      parent="sanction_menu"
+      />
+</odoo>

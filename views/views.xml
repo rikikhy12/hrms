@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="hrms.list">
+      <field name="name">hrms list</field>
+      <field name="model">hrms.hrms</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="hrms.action_window">
+      <field name="name">hrms window</field>
+      <field name="res_model">hrms.hrms</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="hrms.action_server">
+      <field name="name">hrms server</field>
+      <field name="model_id" ref="model_hrms_hrms"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="hrms" id="hrms.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="hrms.menu_1" parent="hrms.menu_root"/>
+    <menuitem name="Menu 2" id="hrms.menu_2" parent="hrms.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="hrms.menu_1_list" parent="hrms.menu_1"
+              action="hrms.action_window"/>
+    <menuitem name="Server to list" id="hrms" parent="hrms.menu_2"
+              action="hrms.action_server"/>
+-->
+  </data>
+</odoo>

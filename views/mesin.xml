@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="model_mesin_view_tree" model="ir.ui.view">
+        <field name="name">hrms.mesin.view.tree</field>
+        <field name="model">hrms.mesin</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nama"/>
+                <field name="ip_address"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hrms_mesin_view_form" model="ir.ui.view">
+        <field name="name">hrms.mesin.view.form</field>
+        <field name="model">hrms.mesin</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="nama" />
+                        <field name="ip_address" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="machine_action_act_windows" model="ir.actions.act_window">
+        <field name="name">Machine</field>
+        <field name="res_model">hrms.mesin</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="mesinxml_menu"
+        name="Machine Attendance"
+        parent="attendance_menu"
+        action="machine_action_act_windows"
+        sequence="8"/>
+</odoo>

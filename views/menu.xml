@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem
+        id="hrms_menu"
+        name="HRIS"
+        web_icon="hrms,static/description/icon.png"/>
+
+        <menuitem
+            id="groupdiv_hrms"
+            name="Group Div By working"
+            sequence="1"
+            parent="hrms_menu"  
+            action=""/>
+   <menuitem
+            id="attendance_menu"
+            name="Attandance"
+            sequence="2"
+            parent="hrms_menu"  
+            action=""/>
+
+        <menuitem
+            id="recruitment_menu"
+            name="Recruitment"
+            sequence="3"
+            parent="hrms_menu"  
+            action=""/>
+
+        <menuitem
+            id="payroll_menu"
+            name="Payroll"
+            sequence="4"
+            parent="hrms_menu"  
+            action=""/>
+
+     
+            
+        <menuitem
+            id="benefit"
+            name="Benefit"
+            sequence="5"
+            parent="hrms_menu"  
+            action=""/>
+        <menuitem
+            id="policy_menu"
+            name="Policy"
+            sequence="6"
+            parent="hrms_menu"  
+            action=""/>.
+
+        <menuitem
+            id="tax_menu_parent"
+            name="Tax"
+            sequence="7"
+            parent="hrms_menu"  
+            action=""/>
+
+        <menuitem
+            id="bpjs_menu"
+            name="Bpjs"
+            sequence="8"
+            parent="hrms_menu"  
+            action=""/>
+
+        <menuitem
+            id="sanction_menu"
+            name="Sanction"
+            sequence="10"
+            parent="hrms_menu"  
+            action=""/>
+
+        <menuitem
+            id="calendar_menu"
+            name="Calendar"
+            sequence="10"
+            parent="hrms_menu"  
+            action=""/>
+</odoo>

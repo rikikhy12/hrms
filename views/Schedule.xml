@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+    <record id="schedule_act_windows" model="ir.actions.act_window">
+        <field name="name">Schedule</field>
+        <field name="res_model">hrms.jam_kerja</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem id="schedule_menu" action="schedule_act_windows" name="Schedule" parent="groupdiv_hrms" sequence="3"/>
+</odoo>

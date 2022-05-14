@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>  
+
+    
+    <record id="action_server_validasi_attendance" model="ir.actions.server">
+        <field name="type">ir.actions.server</field>
+        <field name="name">Posting Absen</field>
+        <field name="model_id" ref="hrms.model_hrms_validasi_attendance" />
+        <field name="state">code</field>
+        <field name="binding_model_id" ref="hrms.model_hrms_validasi_attendance" />
+        <field name="code">records.funct_to_approve()</field>
+    </record>
+    
+     <record id="hrms_validasi_attendance_view_tree" model="ir.ui.view">
+         <field name="name">hrms.validasi_attendance.view.tree</field>
+         <field name="model">hrms.validasi_attendance</field>
+         <field name="arch" type="xml">
+             <tree>
+                <field name="employee_id" />       
+                <field name="date" />       
+                <field name="check_in" />       
+                <field name="check_out" />       
+                <field name="status_absen" />       
+                <field name="postingabsen" />   
+                <button  type="object" name="defsakit"  string="Sakit" class="oe_highlight"/>    
+                <button  type="object" name="defizin"   string="Izin" class="btn-warning"/>    
+                <button  type="object" name="defalpha"   string="Alpha" class="btn-danger"/>    
+                <button  type="object" name="defhadir" string="Hadir"  class="btn-success"/>    
+             </tree>
+         </field>
+     </record>
+    
+
+<record id="hrms_validasi_view_search" model="ir.ui.view">
+        <field name="name">hrms.validasi.view.search</field>
+        <field name="model">hrms.validasi_attendance</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <!-- Add your fields here -->
+                <field name="employee_id"/>
+                <field name="date"/>
+                <field name="check_in" />       
+                <field name="check_out" />       
+                <field name="status_absen"/>  
+                <filter name="postingabsen" string="Posting Absen"
+                        domain="[('postingabsen', '=', 0)]"/>
+                <group string="Group By">
+                    <filter name="group_by_responsible" string="Group Id"
+                            context="{'group_by': 'group_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="validasi_attendance_action_windows" model="ir.actions.act_window">
+        <field name="name">Validasi absen</field>
+        <field name="res_model">hrms.validasi_attendance</field>
+        <field name="context">{'search_default_postingabsen':1}</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="validation_att_menu"
+        name="Validasi absen"
+        action="validasi_attendance_action_windows"
+        parent="attendance_menu"
+        sequence="10"/>
+</odoo>

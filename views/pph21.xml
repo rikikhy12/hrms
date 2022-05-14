@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="pph21_act_windows" model="ir.actions.act_window">
+    <field name="name">PPH 21</field>
+    <field name="res_model">hrms.jam_kerja</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+    <menuitem
+        id="pph21_menu"
+        name="PPH 21"
+        action="pph21_act_windows"
+        parent="tax_menu_parent"
+        sequence="2"/>
+</odoo>

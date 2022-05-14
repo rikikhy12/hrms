@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- model.name tree view -->
+    <record id="create_sp_view_tree" model="ir.ui.view">
+        <field name="name">create.sp.view.tree</field>
+        <field name="model">hrms.sp_employee</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="employee_id" />
+                <field name="status_sp" />
+                <field name="tanggal_awal" />
+                <field name="tanggal_akhir" />
+                <field name="tanggal_terbit" />
+                <field name="pelanggaran" />
+            </tree>
+        </field>
+    </record>
+    <record id="create_sp_action_windows" model="ir.actions.act_window">
+        <field name="name">Create SP</field>
+        <field name="res_model">hrms.sp_employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="create_sp_menu"
+        name="Create SP"
+        sequence="11"
+        parent="sanction_menu"
+        action="create_sp_action_windows"/>
+</odoo>

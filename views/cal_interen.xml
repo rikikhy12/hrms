@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="calinternal_act_windows" model="ir.actions.act_window">
+        <field name="name">Calendar Internal</field>
+        <field name="res_model">hrms.jam_kerja</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="cal_interen"
+        name="Calendar Internal"
+        parent="calendar_menu"
+        action="calinternal_act_windows"
+        sequence="2"/>
+</odoo>
