@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_student_id_card" model="ir.actions.report">
+    <field name="name">Cetak Fdf</field>
+    <field name="model">hrms.sp_employee</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">hrms.sp_employee2</field>
+    <field name="report_file">Print Sp</field>
+    <field name="print_report_name">'Sp Print - %s' % (object.employee_id)</field>
+    <field name="binding_model_id" ref="hrms.model_hrms_sp_employee"/>
+    <field name="binding_type">report</field>
+    </record>
+
+    <template id="sp_employee2">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h5>PT KAHAPTEX <br/>
+                            JL. PRAPATAN KEDEP - GUNUNG PUTRI <br/>
+                            BOGOR
+                        </h5> <br/>
+                        <div align="center"><h5> SURAT PERINGATAN </h5></div>
+                        <p>Yang bertanda tangan di bawah ini Personalia Pt.Kahaptex Jln.Prapatan Kedep - Gunung Putri Bogor, Dengan ini menyatakan bahwa karyawan PT. Kahaptex atas nama :
+                          <table align="center" width="80%"> 
+                             <tr>
+                                <td> Nama </td>
+                                <td> : </td>
+                                <td> <span t-field="o.employee_id"/> </td>
+                             </tr>
+                             <tr>
+                                <td> Bagian </td>
+                                <td> : </td>
+                                <td> <span t-field="o.employee_id"/> </td>
+                             </tr>
+                             <tr>
+                                <td> Jabatan </td>
+                                <td> : </td>
+                                <td> <span t-field="o.employee_id"/> </td>
+                             </tr>
+                             <tr>
+                                <td> Pelanggaran </td>
+                                <td> : </td>
+                                <td> <span t-field="o.pelanggaran"/> </td>
+                             </tr>
+                          </table>
+                        
+                      
+                         Atas Kelalaian ini , maka pihak management memutuskan bahwa saudara di beri sanksi <br/> <br/>
+                         <h5 align="center"> SURAT PERINGATAN <span t-field="o.jenis_sp"> </span></h5>
+                         <b> 
+                            Selama 3 Bulan mulai tanggal <span t-field="o.tgl_awal_sp"/> s/d  <span t-field="o.tgl_akhir_sp"/>
+                        </b>
+                            <br/>
+                            <br/>
+                         <strong> 
+                            Dengan Diberikan nya  <span t-field="o.jenis_sp"/> ini maka akan ada pemotongan tunjangan Jabatan
+                             Sebesar <span t-field="o.potongan"/> % kepada saudara dengan cara potong gaji satu kali potongan.
+                        
+                         </strong>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <span> 
+                            Dan apabila dalam masa sanksi ini saudara melakukan kelalaian lagi ataupun kelalaian yang lain dalam keterkaitan <br/>
+                            lain dalam keterkaitan dengan aturan perusahaan ataupun saudara tidak mengindahkan atau <br/>
+                            mengabaikan surat  peringatan ini , maka saudara 
+                            akan diberi sanksi yang lebih berat. Dengan maksud agar hal demikian tidak terulang lagi di kemudian hari. <br/>
+                            Demikian surat peringatan ini dibuat agar diketahui . Atas perhatian dan kerjasamanya terimakasih. <br/>
+                            <br/>
+                            <br/>
+
+                            Gunung Putri ,  <span t-field="o.tgl_terbit_sp"/>
+                            
+                         </span>
+
+                         <table align="center" border="1px" width="100%">
+                            <tr>
+                                <td> PENERIMA SANKSI </td>
+                                <td> KEPALA BAGIAN </td>
+                                <td> MANAGER </td>
+                                <td> PERSONALIA </td>
+                                <td> FACTORY MANAGER </td>
+                             </tr>
+                            <tr>
+                                <td style="height:50px">  </td>
+                                <td> </td>
+                                <td>  </td>
+                                <td>  </td>
+                                <td>  </td>
+                             </tr>
+                          </table>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

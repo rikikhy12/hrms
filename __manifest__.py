@@ -42,6 +42,7 @@
         'views/departement.xml',
         'views/tax.xml',
         'views/jht.xml',
+        'views/create_sp.xml',
         'views/attendance.xml',
         'views/pp.xml',
         'views/sp.xml',
@@ -50,6 +51,7 @@
         'views/cal_nasional.xml',
         'views/views.xml',
         'views/templates.xml',
+        'views/sp_print.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

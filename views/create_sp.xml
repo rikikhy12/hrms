@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- model.name form view -->
+    <record id="hrms_create_sp_view_form" model="ir.ui.view">
+        <field name="name">hrms.create.sp.view.form</field>
+        <field name="model">hrms.sp_employee</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                   <group>
+                         <div class="oe_title">
+                            <label for="employee_id" class="oe_edit_only"/>
+                            <h1>
+                                <field name="employee_id" placeholder="Employee"/>
+                            </h1>
+                    </div> 
+                   </group>
+                    <group>
+                        <field name="jenis_sp" />
+                        <field name="potongan" />
+                        <field name="tgl_awal_sp" />
+                        <field name="tgl_akhir_sp" />
+                        <field name="tgl_terbit_sp" />
+                        <field name="pelanggaran" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- model.name tree view -->
+    <record id="hrms_sp_employee_view_tree" model="ir.ui.view">
+        <field name="name">hrms.sp.employee.view.tree</field>
+        <field name="model">hrms.sp_employee</field>
+        <field name="arch" type="xml">
+            <tree>
+                        <field name="employee_id" />
+                        <field name="jenis_sp" />
+                        <field name="potongan" />
+                        <field name="tgl_awal_sp" />
+                        <field name="tgl_akhir_sp" />
+                        <field name="tgl_terbit_sp" />
+                        <field name="pelanggaran" />
+            </tree>
+        </field>
+    </record>
+
+
+  <record id="create_sp_action_windows" model="ir.actions.act_window">
+      <field name="name">Buat Sp</field>
+      <field name="res_model">hrms.sp_employee</field>
+      <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem
+      id="hrms_create_sp_menu"
+      name="Buat Sp"
+      action="create_sp_action_windows"
+      parent="sanction_menu"
+      sequence="11"/>
+</odoo>
